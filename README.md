@@ -2,8 +2,9 @@
 
 ## Chapter 1: Classes
 
-- [Destroy Walls](./classes/destroy_walls.py)
-- [Fight Soldiers](./classes//fight_soldiers.py)
-- [Wall](./classes/wall.py)
-- [Wall Methods](./classes/wall-methods.py)
-- [Wall Constructor](./classes/wall-constructor.py)
+- [Destroy Walls](./classes/destroy-walls.py)
+- [Fight Soldiers](./classes/fight-soldiers.py)
+- [Class Methods](./classes/class-methods.py)
+- [Class Methods Return](./classes/class-methods-return.py)
+- [Class Constructor](./classes/class-constructor.py)
+- [Class Multiple Object](./classes/class-multiple-objects.py)
