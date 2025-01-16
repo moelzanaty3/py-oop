@@ -6,3 +6,4 @@
 - [Fight Soldiers](./classes//fight_soldiers.py)
 - [Wall](./classes/wall.py)
 - [Wall Methods](./classes/wall-methods.py)
+- [Wall Constructor](./classes/wall-constructor.py)
