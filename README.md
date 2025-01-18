@@ -19,3 +19,10 @@
 - [Wizard Duel 2](./encapsulation/wizard-duel-2.py)
 - [Bank Account](./encapsulation/bank-account.py)
 - [Student](./encapsulation/student.py)
+
+## Chapter 3: Abstraction
+
+- [Move Human](./abstraction/move-human.py)
+- [Sprint Human](./abstraction/sprint-human.py)
+- [Deck of Cards](./abstraction/deck-of-cards.py)
+- [Calculator](./abstraction/calculator.py)
