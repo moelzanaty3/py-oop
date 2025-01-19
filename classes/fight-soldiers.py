@@ -1,15 +1,15 @@
 def get_soldier_dps(soldier):
-  return soldier["damage"] * soldier["attacks_per_second"]
+    return soldier["damage"] * soldier["attacks_per_second"]
 
 
 def fight_soldiers(soldier_one, soldier_two):
-  soldier_one_dps = get_soldier_dps(soldier_one)
-  soldier_two_dps = get_soldier_dps(soldier_two)
-  if soldier_one_dps > soldier_two_dps:
-    return "soldier 1 wins"
-  if soldier_two_dps > soldier_one_dps:
-    return "soldier 2 wins"
-  return "both soldiers die"
+    soldier_one_dps = get_soldier_dps(soldier_one)
+    soldier_two_dps = get_soldier_dps(soldier_two)
+    if soldier_one_dps > soldier_two_dps:
+        return "soldier 1 wins"
+    if soldier_two_dps > soldier_one_dps:
+        return "soldier 2 wins"
+    return "both soldiers die"
 
 
 run_cases = [
@@ -55,54 +55,54 @@ submit_cases = run_cases + [
 
 
 def test(input1, input2, expected_output):
-  print("---------------------------------")
-  print(f"fight_soldiers inputs: {input1}, {input2}")
-  print(f"expecting: {expected_output}")
-  try:
-    result = fight_soldiers(input1, input2)
-    print(f"actual: {result}")
-    if result != expected_output:
-      print("Fail")
-      return False
-    actualSoliderOneDps = get_soldier_dps(input1)
-    actualSoliderTwoDps = get_soldier_dps(input2)
-    expectedSoliderOneDps = input1["damage"] * input1["attacks_per_second"]
-    expectedSoliderTwoDps = input2["damage"] * input2["attacks_per_second"]
-    if actualSoliderOneDps != expectedSoliderOneDps:
-      print(
-          f"get_soldier_dps({input1}) returned {actualSoliderOneDps}, but expected {expectedSoliderOneDps}"
-      )
-      return False
-    if actualSoliderTwoDps != expectedSoliderTwoDps:
-      print(
-          f"get_soldier_dps({input2}) returned {actualSoliderTwoDps}, but expected {expectedSoliderTwoDps}"
-      )
-      return False
-    print("Pass")
-    return True
-  except Exception as e:
-    print(f"Error: {e}")
-    return False
+    print("---------------------------------")
+    print(f"fight_soldiers inputs: {input1}, {input2}")
+    print(f"expecting: {expected_output}")
+    try:
+        result = fight_soldiers(input1, input2)
+        print(f"actual: {result}")
+        if result != expected_output:
+            print("Fail")
+            return False
+        actualSoliderOneDps = get_soldier_dps(input1)
+        actualSoliderTwoDps = get_soldier_dps(input2)
+        expectedSoliderOneDps = input1["damage"] * input1["attacks_per_second"]
+        expectedSoliderTwoDps = input2["damage"] * input2["attacks_per_second"]
+        if actualSoliderOneDps != expectedSoliderOneDps:
+            print(
+                f"get_soldier_dps({input1}) returned {actualSoliderOneDps}, but expected {expectedSoliderOneDps}"
+            )
+            return False
+        if actualSoliderTwoDps != expectedSoliderTwoDps:
+            print(
+                f"get_soldier_dps({input2}) returned {actualSoliderTwoDps}, but expected {expectedSoliderTwoDps}"
+            )
+            return False
+        print("Pass")
+        return True
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
 
 
 def main():
-  passed = 0
-  failed = 0
-  for test_case in test_cases:
-    correct = test(*test_case)
-    if correct:
-      passed += 1
+    passed = 0
+    failed = 0
+    for test_case in test_cases:
+        correct = test(*test_case)
+        if correct:
+            passed += 1
+        else:
+            failed += 1
+    if failed == 0:
+        print("============= PASS ==============")
     else:
-      failed += 1
-  if failed == 0:
-    print("============= PASS ==============")
-  else:
-    print("============= FAIL ==============")
-  print(f"{passed} passed, {failed} failed")
+        print("============= FAIL ==============")
+    print(f"{passed} passed, {failed} failed")
 
 
 test_cases = submit_cases
 if "__RUN__" in globals():
-  test_cases = run_cases
+    test_cases = run_cases
 
 main()

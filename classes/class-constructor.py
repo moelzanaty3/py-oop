@@ -1,9 +1,9 @@
 class Wall:
-  def __init__(self, depth, height, width):
-    self.depth = depth
-    self.height = height
-    self.width = width
-    self.volume = self.depth * self.height * self.width
+    def __init__(self, depth, height, width):
+        self.depth = depth
+        self.height = height
+        self.width = width
+        self.volume = self.depth * self.height * self.width
 
 
 run_cases = [
@@ -24,49 +24,49 @@ submit_cases = run_cases + [
 
 
 def test(wall, expected_output):
-  print("---------------------------------")
-  expected_depth, expected_height, expected_width, expected_volume = expected_output
-  try:
-    print(
-        f"Expected Wall - volume: {expected_volume} depth: {expected_depth} height: {expected_height} width: {expected_width}"
-    )
-    print(
-        f"Actual Wall   - volume: {wall.volume} depth: {wall.depth} height: {wall.height} width: {wall.width}"
-    )
-    if (
-        expected_volume == wall.volume
-        and expected_depth == wall.depth
-        and expected_height == wall.height
-        and expected_width == wall.width
-    ):
-      print("Pass")
-      return True
-    print("Fail")
-    return False
-  except Exception as e:
-    print(f"Error: {e}")
-    return False
+    print("---------------------------------")
+    expected_depth, expected_height, expected_width, expected_volume = expected_output
+    try:
+        print(
+            f"Expected Wall - volume: {expected_volume} depth: {expected_depth} height: {expected_height} width: {expected_width}"
+        )
+        print(
+            f"Actual Wall   - volume: {wall.volume} depth: {wall.depth} height: {wall.height} width: {wall.width}"
+        )
+        if (
+            expected_volume == wall.volume
+            and expected_depth == wall.depth
+            and expected_height == wall.height
+            and expected_width == wall.width
+        ):
+            print("Pass")
+            return True
+        print("Fail")
+        return False
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
 
 
 def main():
-  passed = 0
-  failed = 0
-  for wall, expected_outputs in test_cases:
-    correct = test(wall, expected_outputs)
-    if correct:
-      passed += 1
-    else:
-      failed += 1
+    passed = 0
+    failed = 0
+    for wall, expected_outputs in test_cases:
+        correct = test(wall, expected_outputs)
+        if correct:
+            passed += 1
+        else:
+            failed += 1
 
-  if failed == 0:
-    print("============= PASS ==============")
-  else:
-    print("============= FAIL ==============")
-  print(f"{passed} passed, {failed} failed")
+    if failed == 0:
+        print("============= PASS ==============")
+    else:
+        print("============= FAIL ==============")
+    print(f"{passed} passed, {failed} failed")
 
 
 test_cases = submit_cases
 if "__RUN__" in globals():
-  test_cases = run_cases
+    test_cases = run_cases
 
 main()

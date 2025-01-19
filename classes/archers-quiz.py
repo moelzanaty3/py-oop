@@ -1,27 +1,27 @@
 class Archer:
-  def __init__(self, name, health, num_arrows):
-    self.name = name
-    self.health = health
-    self.num_arrows = num_arrows
+    def __init__(self, name, health, num_arrows):
+        self.name = name
+        self.health = health
+        self.num_arrows = num_arrows
 
-  def get_shot(self):
-    if self.health > 0:
-      self.health -= 1
-    if self.health == 0:
-      raise Exception(f"{self.name} is dead")
+    def get_shot(self):
+        if self.health > 0:
+            self.health -= 1
+        if self.health == 0:
+            raise Exception(f"{self.name} is dead")
 
-  def shoot(self, target):
-    if self.num_arrows == 0:
-      raise Exception(f"{self.name} can't shoot")
-    self.num_arrows -= 1
-    print(f"{self.name} shoots {target.name}")
-    target.get_shot()
+    def shoot(self, target):
+        if self.num_arrows == 0:
+            raise Exception(f"{self.name} can't shoot")
+        self.num_arrows -= 1
+        print(f"{self.name} shoots {target.name}")
+        target.get_shot()
 
-  def get_status(self):
-    return self.name, self.health, self.num_arrows
+    def get_status(self):
+        return self.name, self.health, self.num_arrows
 
-  def print_status(self):
-    print(f"{self.name} has {self.health} health and {self.num_arrows} arrows")
+    def print_status(self):
+        print(f"{self.name} has {self.health} health and {self.num_arrows} arrows")
 
 
 run_cases = [
@@ -81,64 +81,64 @@ submit_cases = run_cases + [
 
 
 def test(archer_1, archer_2, rounds, expected_result, expected_err):
-  print("---------------------------------")
-  archer_1.print_status()
-  archer_2.print_status()
-
-  try:
-    for _ in range(rounds):
-      archer_1.shoot(archer_2)
-      archer_2.print_status()
-      archer_2.shoot(archer_1)
-      archer_1.print_status()
+    print("---------------------------------")
+    archer_1.print_status()
     archer_2.print_status()
 
-    if expected_err:
-      print(f"\nExpected Exception: {expected_err}")
-      print("Actual: no exception raised")
-      print("Fail")
-      return False
+    try:
+        for _ in range(rounds):
+            archer_1.shoot(archer_2)
+            archer_2.print_status()
+            archer_2.shoot(archer_1)
+            archer_1.print_status()
+        archer_2.print_status()
 
-    status_1 = archer_1.get_status()
-    status_2 = archer_2.get_status()
-    print(f"\nExpected Result: {expected_result[0]}, {expected_result[1]}")
-    print(f"Actual Result: {status_1}, {status_2}")
+        if expected_err:
+            print(f"\nExpected Exception: {expected_err}")
+            print("Actual: no exception raised")
+            print("Fail")
+            return False
 
-    if status_1 == expected_result[0] and status_2 == expected_result[1]:
-      print("Pass")
-      return True
-    else:
-      print("Fail")
-      return False
-  except Exception as e:
-    print(f"\nExpected Exception: {expected_err}")
-    print(f"Actual Exception: {str(e)}")
-    if str(e) == expected_err:
-      print("Pass")
-      return True
-    else:
-      print("Fail")
-      return False
+        status_1 = archer_1.get_status()
+        status_2 = archer_2.get_status()
+        print(f"\nExpected Result: {expected_result[0]}, {expected_result[1]}")
+        print(f"Actual Result: {status_1}, {status_2}")
+
+        if status_1 == expected_result[0] and status_2 == expected_result[1]:
+            print("Pass")
+            return True
+        else:
+            print("Fail")
+            return False
+    except Exception as e:
+        print(f"\nExpected Exception: {expected_err}")
+        print(f"Actual Exception: {str(e)}")
+        if str(e) == expected_err:
+            print("Pass")
+            return True
+        else:
+            print("Fail")
+            return False
 
 
 def main():
-  passed = 0
-  failed = 0
-  for test_case in test_cases:
-    correct = test(*test_case)
-    if correct:
-      passed += 1
+    passed = 0
+    failed = 0
+    for test_case in test_cases:
+        correct = test(*test_case)
+        if correct:
+            passed += 1
+        else:
+            failed += 1
+    if failed == 0:
+        print("============= PASS ==============")
     else:
-      failed += 1
-  if failed == 0:
-    print("============= PASS ==============")
-  else:
-    print("============= FAIL ==============")
-  print(f"{passed} passed, {failed} failed")
+        print("============= FAIL ==============")
+    print(f"{passed} passed, {failed} failed")
 
 
 test_cases = submit_cases
 if "__RUN__" in globals():
-  test_cases = run_cases
+    test_cases = run_cases
 
 main()

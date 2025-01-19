@@ -3,18 +3,18 @@ potion_mana = 100
 
 
 class Wizard:
-  def __init__(self, name, stamina, intelligence):
-    self.name = name
-    self.__stamina = stamina
-    self.__intelligence = intelligence
-    self.mana = self.__intelligence * 10
-    self.health = self.__stamina * 100
+    def __init__(self, name, stamina, intelligence):
+        self.name = name
+        self.__stamina = stamina
+        self.__intelligence = intelligence
+        self.mana = self.__intelligence * 10
+        self.health = self.__stamina * 100
 
-  def get_fireballed(self):
-    self.health -= 500
+    def get_fireballed(self):
+        self.health -= 500
 
-  def drink_mana_potion(self):
-    self.mana += 100
+    def drink_mana_potion(self):
+        self.mana += 100
 
 
 run_cases = [
@@ -34,40 +34,40 @@ def test(
     expected_health_after,
     expected_mana_after,
 ):
-  print("---------------------------------")
-  print(f"Wizard({wizard_name}, {wizard_stamina}, {wizard_intelligence})")
-  wizard = Wizard(wizard_name, wizard_stamina, wizard_intelligence)
-  wizard.get_fireballed()
-  wizard.drink_mana_potion()
-  print(f"Expected health after: {expected_health_after}")
-  print(f"Actual health after: {wizard.health}")
-  print(f"Expected mana after: {expected_mana_after}")
-  print(f"Actual mana after: {wizard.mana}")
-  if wizard.health != expected_health_after:
-    return False
-  if wizard.mana != expected_mana_after:
-    return False
-  return True
+    print("---------------------------------")
+    print(f"Wizard({wizard_name}, {wizard_stamina}, {wizard_intelligence})")
+    wizard = Wizard(wizard_name, wizard_stamina, wizard_intelligence)
+    wizard.get_fireballed()
+    wizard.drink_mana_potion()
+    print(f"Expected health after: {expected_health_after}")
+    print(f"Actual health after: {wizard.health}")
+    print(f"Expected mana after: {expected_mana_after}")
+    print(f"Actual mana after: {wizard.mana}")
+    if wizard.health != expected_health_after:
+        return False
+    if wizard.mana != expected_mana_after:
+        return False
+    return True
 
 
 def main():
-  passed = 0
-  failed = 0
-  for test_case in test_cases:
-    correct = test(*test_case)
-    if correct:
-      passed += 1
+    passed = 0
+    failed = 0
+    for test_case in test_cases:
+        correct = test(*test_case)
+        if correct:
+            passed += 1
+        else:
+            failed += 1
+    if failed == 0:
+        print("============= PASS ==============")
     else:
-      failed += 1
-  if failed == 0:
-    print("============= PASS ==============")
-  else:
-    print("============= FAIL ==============")
-  print(f"{passed} passed, {failed} failed")
+        print("============= FAIL ==============")
+    print(f"{passed} passed, {failed} failed")
 
 
 test_cases = submit_cases
 if "__RUN__" in globals():
-  test_cases = run_cases
+    test_cases = run_cases
 
 main()

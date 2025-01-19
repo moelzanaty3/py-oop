@@ -2,44 +2,44 @@ import random
 
 
 class DeckOfCards:
-  SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
-  RANKS = [
-      "Ace",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "Jack",
-      "Queen",
-      "King",
-  ]
+    SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
+    RANKS = [
+        "Ace",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "Jack",
+        "Queen",
+        "King",
+    ]
 
-  def __init__(self):
-    self.__cards = []
-    self.create_deck()
+    def __init__(self):
+        self.__cards = []
+        self.create_deck()
 
-  def create_deck(self):
-    for suit in self.SUITS:
-      for rank in self.RANKS:
-        self.__cards.append((rank, suit))
+    def create_deck(self):
+        for suit in self.SUITS:
+            for rank in self.RANKS:
+                self.__cards.append((rank, suit))
 
-  def shuffle_deck(self):
-    random.shuffle(self.__cards)
+    def shuffle_deck(self):
+        random.shuffle(self.__cards)
 
-  def deal_card(self):
-    if len(self.__cards) == 0:
-      return None
-    return self.__cards.pop()
+    def deal_card(self):
+        if len(self.__cards) == 0:
+            return None
+        return self.__cards.pop()
 
-  # don't touch below this line
+    # don't touch below this line
 
-  def __str__(self):
-    return f"The deck has {len(self.__cards)} cards"
+    def __str__(self):
+        return f"The deck has {len(self.__cards)} cards"
 
 
 run_cases = [
@@ -133,61 +133,61 @@ submit_cases = run_cases + [
 
 
 def test(action, num_cards, expected):
-  print("---------------------------------")
-  print(f"Testing action: {action}, dealing {num_cards} cards")
-  print(f"Expected Output:")
-  print_cards(expected)
-  deck = DeckOfCards()
-  random.seed(1)
-  result = []
+    print("---------------------------------")
+    print(f"Testing action: {action}, dealing {num_cards} cards")
+    print(f"Expected Output:")
+    print_cards(expected)
+    deck = DeckOfCards()
+    random.seed(1)
+    result = []
 
-  if action == "shuffle_deck":
-    print("Shuffling deck...")
-    deck.shuffle_deck()
-    print(f"dealing {num_cards} cards")
-    for _ in range(num_cards):
-      result.append(deck.deal_card())
+    if action == "shuffle_deck":
+        print("Shuffling deck...")
+        deck.shuffle_deck()
+        print(f"dealing {num_cards} cards")
+        for _ in range(num_cards):
+            result.append(deck.deal_card())
 
-  elif action == "deal_card":
-    for _ in range(num_cards):
-      result.append(deck.deal_card())
+    elif action == "deal_card":
+        for _ in range(num_cards):
+            result.append(deck.deal_card())
 
-  print(f"Actual Output:")
-  print_cards(result)
-  if result == expected:
-    print("Pass")
-    return True
-  else:
-    print("Fail")
-    return False
+    print(f"Actual Output:")
+    print_cards(result)
+    if result == expected:
+        print("Pass")
+        return True
+    else:
+        print("Fail")
+        return False
 
 
 def print_cards(cards):
-  for card in cards:
-    if card is None:
-      print("* <None>")
-    else:
-      print(f"* {card[0]} of {card[1]}")
+    for card in cards:
+        if card is None:
+            print("* <None>")
+        else:
+            print(f"* {card[0]} of {card[1]}")
 
 
 def main():
-  passed = 0
-  failed = 0
-  for test_case in test_cases:
-    correct = test(*test_case)
-    if correct:
-      passed += 1
+    passed = 0
+    failed = 0
+    for test_case in test_cases:
+        correct = test(*test_case)
+        if correct:
+            passed += 1
+        else:
+            failed += 1
+    if failed == 0:
+        print("============= PASS ==============")
     else:
-      failed += 1
-  if failed == 0:
-    print("============= PASS ==============")
-  else:
-    print("============= FAIL ==============")
-  print(f"{passed} passed, {failed} failed")
+        print("============= FAIL ==============")
+    print(f"{passed} passed, {failed} failed")
 
 
 test_cases = submit_cases
 if "__RUN__" in globals():
-  test_cases = run_cases
+    test_cases = run_cases
 
 main()

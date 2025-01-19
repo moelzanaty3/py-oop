@@ -1,37 +1,37 @@
 class Calculator:
-  def __init__(self):
-    self.__result = 0
+    def __init__(self):
+        self.__result = 0
 
-  def add(self, a):
-    self.__result += a
+    def add(self, a):
+        self.__result += a
 
-  def subtract(self, a):
-    self.__result -= a
+    def subtract(self, a):
+        self.__result -= a
 
-  def multiply(self, a):
-    self.__result *= a
+    def multiply(self, a):
+        self.__result *= a
 
-  def divide(self, a):
-    if a == 0:
-      raise ValueError("Cannot divide by zero")
-    self.__result /= a
+    def divide(self, a):
+        if a == 0:
+            raise ValueError("Cannot divide by zero")
+        self.__result /= a
 
-  def modulo(self, a):
-    if a == 0:
-      raise ValueError("Cannot divide by zero")
-    self.__result %= a
+    def modulo(self, a):
+        if a == 0:
+            raise ValueError("Cannot divide by zero")
+        self.__result %= a
 
-  def power(self, a):
-    self.__result **= a
+    def power(self, a):
+        self.__result **= a
 
-  def square_root(self):
-    self.__result **= 0.5
+    def square_root(self):
+        self.__result **= 0.5
 
-  def clear(self):
-    self.__result = 0
+    def clear(self):
+        self.__result = 0
 
-  def get_result(self):
-    return self.__result
+    def get_result(self):
+        return self.__result
 
 
 run_cases = [
@@ -60,65 +60,65 @@ actions = {
 
 
 def test(starting_num, actions_list, expected_output, expected_err=None):
-  print("---------------------------------")
-  print(f"Starting Number: {starting_num}, Actions: {actions_list}")
-  calculator = Calculator()
-  calculator.add(starting_num)
-  try:
-    result = calculator.result
-    print("'result' attribute is not private")
-    print("Fail 3")
-    return False
-  except Exception as e:
-    if str(e) != "'Calculator' object has no attribute 'result'":
-      print("Exception: " + str(e))
-      print("Fail 4")
-      return False
-  try:
-    for action, number in actions_list:
-      if number is None:
-        actions[action](calculator)
-      else:
-        actions[action](calculator, number)
-    result = calculator.get_result()
-    print(f"Expected Output: {expected_output}")
-    print(f"Actual Output: {result}")
-    if float(result) == float(expected_output):
-      print("Pass 1")
-      return True
+    print("---------------------------------")
+    print(f"Starting Number: {starting_num}, Actions: {actions_list}")
+    calculator = Calculator()
+    calculator.add(starting_num)
+    try:
+        result = calculator.result
+        print("'result' attribute is not private")
+        print("Fail 3")
+        return False
+    except Exception as e:
+        if str(e) != "'Calculator' object has no attribute 'result'":
+            print("Exception: " + str(e))
+            print("Fail 4")
+            return False
+    try:
+        for action, number in actions_list:
+            if number is None:
+                actions[action](calculator)
+            else:
+                actions[action](calculator, number)
+        result = calculator.get_result()
+        print(f"Expected Output: {expected_output}")
+        print(f"Actual Output: {result}")
+        if float(result) == float(expected_output):
+            print("Pass 1")
+            return True
+        else:
+            print("Fail 1")
+            return False
+    except Exception as e:
+        actual_err = str(e)
+        print(f"Expected Error: {expected_err}")
+        print(f"Actual Error: {actual_err}")
+    if actual_err == expected_err:
+        print("Pass 2")
+        return True
     else:
-      print("Fail 1")
-      return False
-  except Exception as e:
-    actual_err = str(e)
-    print(f"Expected Error: {expected_err}")
-    print(f"Actual Error: {actual_err}")
-  if actual_err == expected_err:
-    print("Pass 2")
-    return True
-  else:
-    print("Fail 2")
-    return False
+        print("Fail 2")
+        return False
 
 
 def main():
-  passed = 0
-  failed = 0
-  for test_case in test_cases:
-    correct = test(*test_case)
-    if correct:
-      passed += 1
+    passed = 0
+    failed = 0
+    for test_case in test_cases:
+        correct = test(*test_case)
+        if correct:
+            passed += 1
+        else:
+            failed += 1
+    if failed == 0:
+        print("============= PASS ==============")
     else:
-      failed += 1
-  if failed == 0:
-    print("============= PASS ==============")
-  else:
-    print("============= FAIL ==============")
-  print(f"{passed} passed, {failed} failed")
+        print("============= FAIL ==============")
+    print(f"{passed} passed, {failed} failed")
 
 
 test_cases = submit_cases
 if "__RUN__" in globals():
-  test_cases = run_cases
+    test_cases = run_cases
 
 main()
