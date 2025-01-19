@@ -18,7 +18,7 @@
 - [Wizard Duel](./encapsulation/wizard-duel.py)
 - [Wizard Duel 2](./encapsulation/wizard-duel-2.py)
 - [Bank Account](./encapsulation/bank-account.py)
-- [Student](./encapsulation/student.py)
+- [Student](./encapsulation/student.**py**)
 
 ## Chapter 3: Abstraction
 
@@ -26,3 +26,14 @@
 - [Sprint Human](./abstraction/sprint-human.py)
 - [Deck of Cards](./abstraction/deck-of-cards.py)
 - [Calculator](./abstraction/calculator.py)
+
+## Chapter 4: Inheritance
+
+- [Human](./inheritance/human.py)
+- [Human Hierarchy](./inheritance/human-hierarchy.py)
+- [Human Multiple Children Quiz 1](./inheritance/human-multiple-children-quiz-1.py)
+- [Human Multiple Children Quiz 2](./inheritance/human-multiple-children-quiz-2.py)
+- [Dragons Quiz 1](./inheritance/dragons-quiz-1.py)
+- [Dragons Quiz 2](./inheritance/dragons-quiz-2.py)
+- [Rectangle](./inheritance/rectangle.py)
+- [Caravan](./inheritance/caravan.py)
