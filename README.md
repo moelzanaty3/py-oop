@@ -37,3 +37,13 @@
 - [Dragons Quiz 2](./inheritance/dragons-quiz-2.py)
 - [Rectangle](./inheritance/rectangle.py)
 - [Caravan](./inheritance/caravan.py)
+
+## Chapter 5: Polymorphism
+
+- [Hit Box Rectangle](./polymorphism/hit-box-rectangle.py)
+- [Hit Box Get Edges](./polymorphism/hit-box-get-edges.py)
+- [Hit Box Overlap](./polymorphism/hit-box-overlap.py)
+- [Hit Box Dragon](./polymorphism/hit-box-dragon.py)
+- [Operator Overloading](./polymorphism/operator-overloading.py)
+- [Cards Quiz](./polymorphism/cards-quiz.py)
+- [War Quiz](./polymorphism/war-quiz.py)
